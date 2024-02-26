@@ -7,9 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 connectDb();
 
 export const POST = async (request, response) => {
-    const name="Anandu";
-    const email="hi@hi.com";
-    const password= "1234";
+  const {name,email,password}= await request.join();
 
     try {
         const existingUser = await User.findOne({ email });
