@@ -1,10 +1,57 @@
+'use client'
 import Link from "@/node_modules/next/link"
-import React from "react"
+import React, { useState } from "react"
+import toast, { Toaster } from "@/node_modules/react-hot-toast/dist/index";
+
 
 
 export default function Login() {
+  const [email, setEmail ]= useState('')
+  const [password, setPassword] = useState('')
+
+  const handleChange = (e:any)=>{
+    const {name,value} = e.target;
+     if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
+
+  }
+  const handleSubmit= async (e:any)=>{
+    e.preventDefault();
+    
+    const data={email,password};
+   
+    setEmail('');
+    setPassword('');
+    console.log(data)
+    let res = await fetch('http://localhost:3000/api/LogIn',
+    {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify(data)
+    }
+    
+    )
+
+    let response = await res.json();
+    console.log(response);
+    if(response.message==="Success"){
+      toast.success("Logged in Successfully");
+      
+  
+
+      
+    }
+   
+
+   }
     return (
       <>
+      <Toaster/>
       
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -27,6 +74,8 @@ export default function Login() {
                 <div className="mt-2">
                   <input
                     id="email"
+                    onChange={handleChange}
+                    value={email}
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -50,6 +99,8 @@ export default function Login() {
                 <div className="mt-2">
                   <input
                     id="password"
+                    value={password}
+                    onChange={handleChange}
                     name="password"
                     type="password"
                     autoComplete="current-password"
@@ -62,6 +113,7 @@ export default function Login() {
               <div>
                 <button
                   type="submit"
+                  onClick={handleSubmit}
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
