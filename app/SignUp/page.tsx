@@ -1,7 +1,7 @@
 'use client'
 import Link from "@/node_modules/next/link"
 import toast, { Toaster } from "@/node_modules/react-hot-toast/dist/index";
-import React, { useState,ChangeEvent } from "react"
+import React, { useState } from "react"
 
 
 
@@ -9,7 +9,7 @@ export default function page() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password,setPassword]=useState('');
-  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e:any) => {
     const { name, value } = e.target;
   
     if (name === 'name') {
@@ -20,7 +20,7 @@ export default function page() {
       setPassword(value);
     }
   };
-  const handleSubmit= async (e:ChangeEvent<HTMLInputElement>)=>{
+  const handleSubmit= async (e:any)=>{
     e.preventDefault();
     
     const data={name,email,password};
@@ -129,6 +129,7 @@ onChange={handleChange}
               <div>
                 <button
                   type="submit"
+                  onClick={handleSubmit}
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
