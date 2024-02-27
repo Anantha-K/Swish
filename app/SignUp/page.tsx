@@ -1,7 +1,7 @@
 'use client'
 import Link from "@/node_modules/next/link"
 import toast, { Toaster } from "@/node_modules/react-hot-toast/dist/index";
-import React, { useState } from "react"
+import React, { useState,ChangeEvent } from "react"
 
 
 
@@ -9,7 +9,7 @@ export default function page() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password,setPassword]=useState('');
-  const handleChange = (e:any) => {
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
   
     if (name === 'name') {
@@ -20,7 +20,7 @@ export default function page() {
       setPassword(value);
     }
   };
-  const handleSubmit= async (e:any)=>{
+  const handleSubmit= async (e:ChangeEvent<HTMLInputElement>)=>{
     e.preventDefault();
     
     const data={name,email,password};
