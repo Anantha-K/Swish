@@ -1,8 +1,10 @@
 import Link from "@/node_modules/next/link"
 import React from "react"
+import {useState} from "react"
 
 
 export default function Login() {
+    const [email,setEmail]=useState('');
     return (
       <>
       
