@@ -17,7 +17,7 @@ export const POST = async (request)=>{
             if(Users.password === password){
             
                         
-                        return NextResponse.json({message:"Success"},{status:200})
+                        return NextResponse.json({message:"Successully logged in"},{status:200})
                        
                 
             }else{
