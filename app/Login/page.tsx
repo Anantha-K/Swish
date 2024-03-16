@@ -9,15 +9,7 @@ export default function Login() {
   const [email, setEmail ]= useState('')
   const [password, setPassword] = useState('')
 
-  const handleChange = (e:any)=>{
-    const {name,value} = e.target;
-     if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'password') {
-      setPassword(value);
-    }
-
-  }
+ 
   const handleSubmit= async (e:any)=>{
     e.preventDefault();
     
