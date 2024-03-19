@@ -7,17 +7,7 @@ connectDb();
 export const POST = async (request) => {
   try {
     // Hardcoded values for the new product
-    const title = "Hardcoded Title";
-    const slug = "hardcoded-slug";
-    const desc = "This is a hardcoded description.";
-    const img = "hardcoded-image-url.jpg";
-    const category = "Hardcoded Category";
-    const size = "Hardcoded Size";
-    const color = "Hardcoded Color";
-    const price = 99.99; // Hardcoded price
-    const availableQty = 10; // Hardcoded available quantity
-
-    // Create a new product instance
+    const {title,slug,desc,img,category,size,color,price,availableQty}= await request.json();
     const newProduct = new Product({
       title,
       slug,
@@ -30,7 +20,6 @@ export const POST = async (request) => {
       availableQty
     });
 
-    // Save the new product to the database
     await newProduct.save();
 
     return NextResponse.json({ success: true, message: "Product added successfully" });

@@ -3,7 +3,7 @@ import Product from '../Models/Product'
 import { NextRequest, NextResponse } from "next/server";
 import { cache } from 'react';
 
-export const revalidate =3600
+// export const revalidate =3600
 
 const getLatest = cache(async ()=>{
     await connectDb();
@@ -19,5 +19,5 @@ const getSlug=cache(async(slug: string)=>{
 
 })
 
-const fetch = {getLatest,getSlug};
+const fetch ={getLatest};
 export default fetch

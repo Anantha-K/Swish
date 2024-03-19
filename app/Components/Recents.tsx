@@ -1,7 +1,9 @@
+import Image from "@/node_modules/next/image"
 import Link from "@/node_modules/next/link"
 import { getDefaultAutoSelectFamily } from "net"
 import React from "react"
 import fetch from "../fetch/fetch"
+
 
 // const products = [
 //     {
@@ -27,8 +29,10 @@ export default async function Recents() {
             {products.map((product) => (
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  <img
-                    src={product.imageSrc}
+                  <Image
+                    width={500}
+                    height={500}
+                    src={product.img}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
