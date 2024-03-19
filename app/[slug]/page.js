@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import fetch from '../fetch/fetch'
+
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -61,7 +63,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default  function Example() {
+  // const product = await fetch.getSlug();
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
@@ -170,7 +173,7 @@ export default function Example() {
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
-                <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
+                <RadioGroup value={selectedColor} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
                     {product.colors.map((color) => (

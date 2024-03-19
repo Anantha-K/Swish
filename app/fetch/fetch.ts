@@ -12,10 +12,12 @@ const getLatest = cache(async ()=>{
 
 })
 
-// const getSlug=cache(async()=>{
-//     await connectDb();
+const getSlug=cache(async(slug: string)=>{
+    await connectDb();
+    const product = await Product.find({slug}).lean()
+    return product as Product
 
-// })
+})
 
-const fetch = {getLatest};
+const fetch = {getLatest,getSlug};
 export default fetch
