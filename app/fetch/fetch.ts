@@ -3,7 +3,7 @@ import Product from '../Models/Product'
 import { NextRequest, NextResponse } from "next/server";
 import { cache } from 'react';
 
-// export const revalidate =3600
+export const revalidate = 2
 
 const getLatest = cache(async ()=>{
     await connectDb();
