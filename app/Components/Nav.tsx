@@ -155,7 +155,9 @@ const Nav = () => {
             <MdOutlineShoppingCart />
             </button>
 
+        <Link href='/account'>
         <VscAccount />
+        </Link>
     </div>
 </nav>
 </>

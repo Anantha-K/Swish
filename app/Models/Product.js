@@ -1,31 +1,42 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
 
-const UserSchema = new Schema(
-  {
-    name: {
-      type: String,
-      minlength: 3,
-      maxlength: 20,
-      required: [true, "Kindly enter the name"],
-    },
-    email: {
-      type: String,
-      match: [
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        'Kindly enter a valid email',
-      ],
-      unique: true,
-      required: [true, "Kindly enter the Email"],
-    },
-    password: {
-      type: String,
-      minlength: 3,
-      maxlength: 20,
-      required: [true, "Kindly enter the password"],
-    },
+const ProductSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
   },
-  { timestamps: true }
-);
+  slug: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  desc: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  size: {
+    type: String
+  },
+  color: {
+    type: String
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  availableQty: {
+    type: Number,
+    required: true
+  }
+}, { timestamps: true });
+
 mongoose.models = {};
-export default mongoose.models.User || mongoose.model("User", UserSchema);
+export default mongoose.models.Product || mongoose.model("Product", ProductSchema);
