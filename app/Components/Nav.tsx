@@ -5,12 +5,20 @@ import { VscAccount } from "react-icons/vsc";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Dialog, Transition } from '@headlessui/react'
 import { RxCross1 } from "react-icons/rx";
-
+import useCartStore from '../Store/cart'
+import toast from '@/node_modules/react-hot-toast/dist/index';
 
 
 
 const Nav = () => {
     const [open, setOpen] = useState(false)
+    const products = useCartStore((state) => state.items);
+    const remove = useCartStore((state) => state.removeItem);
+    const handleRemove = (productId) => {
+      remove(productId);
+      toast.success("Item Removed")
+    }
+
 
   return (
 <>
@@ -60,7 +68,7 @@ const Nav = () => {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          {/* <ul role="list" className="-my-6 divide-y divide-gray-200">
+                          <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {products.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -86,6 +94,7 @@ const Nav = () => {
 
                                     <div className="flex">
                                       <button
+                                      onClick={() => handleRemove(product.id)}
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >
@@ -95,8 +104,8 @@ const Nav = () => {
                                   </div>
                                 </div>
                               </li>
-                            ))} */}
-                          {/* </ul> */}
+                            ))} 
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -137,7 +146,7 @@ const Nav = () => {
         </div>
       </Dialog>
     </Transition.Root>
-<nav className='bg-black h-20 w-full text-white flex justify-between px-5'>
+<nav className='bg-black h-20 hidden w-full text-white md:flex justify-between px-5'>
     <div className='flex items-center space-x-8'>
 
     <h1>Swish</h1>
