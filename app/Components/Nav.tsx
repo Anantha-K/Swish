@@ -142,10 +142,10 @@ const Nav = () => {
 
     <h1>Swish</h1>
     <ul className='flex space-x-8 text-base '>
-        <l1><Link href='/'>Home</Link></l1>
-        <li><Link href='/'>Men</Link></li>
-        <li><Link href='/'>Women</Link></li>
-        <li><Link href='/'>Kids</Link></li>
+        <Link href='/'>Home</Link>
+        <Link href='/Men'>Men</Link>
+        <Link href='/Women'>Women</Link>
+        <Link href='/'>Kids</Link>
     </ul>
     </div>
     <div className='flex items-center space-x-8 text-2xl'>

@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import fetch from '../fetch/fetch'
+import toast, { Toaster } from 'react-hot-toast';
+import useCartStore from '../Store/cart'
 
 
 const product = {
@@ -64,12 +66,25 @@ function classNames(...classes) {
 }
 
 export default  function Example() {
+  const addItem = useCartStore((state) => state.addItem);
+  const items = useCartStore((state) => state.items);
+  console.log(items);
+  const handleAdd = (e)=>{
+    e.preventDefault();
+    addItem(product);
+    toast.success("Item Added to Bag")
+
+
+
+  }
   // const product = await fetch.getSlug();
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
   return (
     <div className="bg-white">
+            <Toaster />
+
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -268,6 +283,7 @@ export default  function Example() {
               </div>
 
               <button
+                onClick={handleAdd}
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
