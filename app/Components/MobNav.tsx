@@ -12,14 +12,7 @@
 //         <div className='flex items h-20 rounded-3xl w-[50%] items-center justify-between bg-black  items'>
 //             <GoHome/>
 //             <HiOutlineShoppingCart/>
-//             <RiAccountCircleLine/>
-//             <IoIosHeartEmpty/>
-
-//         </div>
-
-//     </div>
-//     </>
-//   )
+//             <
 // }
 
 // export default mobNav
