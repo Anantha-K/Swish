@@ -16,10 +16,7 @@ const product = {
     { id: 2, name: 'Clothing', href: '#' },
   ],
   images: [
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
-    },
+
     {
       src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
       alt: 'Model wearing plain black basic tee.',
