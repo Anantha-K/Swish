@@ -5,15 +5,7 @@ import {useState} from "react"
 
 export default function Login() {
     const [email,setEmail]=useState('');
-    const handleChange =(e)=>{
-          const value=e.target;
-          setEmail(value);
 
-
-}
-    const handleSubmit=()={
-          
-}
     return (
       <>
       
