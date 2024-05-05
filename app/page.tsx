@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero from './Components/Hero.js'
+import Hero from './Components/Hero.tsx'
 import Products from "./Components/Products.tsx";
 import Recents from "./Components/Recents.tsx";
 import MobNav from "./Components/mobNav.tsx";
