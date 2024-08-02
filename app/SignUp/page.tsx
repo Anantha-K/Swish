@@ -138,7 +138,7 @@ onChange={handleChange}
             </form>
   
             <p className="mt-10 text-center text-sm text-gray-500">
-              Login instead?{' '}
+              Already a user?{' '}
               <Link href="/Login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Log in
               </Link>
